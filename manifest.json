@@ -1,5 +1,19 @@
 {
-    "manifest_version": 1,
+    "manifest_version": 2,
     "name": "tomato_timer",
-    "version": 1.0
+    "version": "1.0",
+
+    "icons": { "32": "./asset/tomato_icon.png" },
+    "description": "Tomato Timer for Efficient Work",
+
+    "author": "Vincent Gao",
+    "background": {
+        "scripts": ["./background.js"],
+        "persistent": false
+    },
+    "option_page": "./option.html",
+    "browser_action": {
+        "default_popup": "./popup.html"
+    },
+    "permissions": ["alarms", "notification", "storage"]
 }
