@@ -1,16 +1,14 @@
-import Timer from "./Timer";
+import Timer from "./Timer.js";
 
+// TODO get time from storage
 let defaultDuration = 25 * 60 * 1000;
-let clockHtml = document.getElementById("clock");
+let clockHtml = document.getElementById("time");
 let timer = new Timer(defaultDuration, clockHtml);
 timer.display();
-// let storageDefaultDuration = chrome.storage.sync.get(
-//     "defaultTime",
-//     ({ defaultTime }) => {}
-// );
 
 document.getElementById("workBtn").addEventListener("click", onClickWorkButton);
 document.getElementById("restBtn").addEventListener("click", onClickRestButton);
+
 document
     .getElementById("startBtn")
     .addEventListener("click", onClickStartButton);
@@ -19,12 +17,15 @@ document
     .getElementById("resetBtn")
     .addEventListener("click", onClickResetButton);
 
+
 function onClickWorkButton() {
     timer.setDuration(25 * 60 * 1000);
+    timer.display();
 }
 
 function onClickRestButton() {
     timer.setDuration(5 * 60 * 1000);
+    timer.display();
 }
 
 function onClickStartButton() {

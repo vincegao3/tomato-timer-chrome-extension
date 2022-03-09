@@ -1,4 +1,4 @@
-class Timer {
+export default class Timer {
     constructor(duration, displayLocation) {
         this.defaultDuration = duration;
         this.duration = duration;
@@ -7,12 +7,17 @@ class Timer {
     }
 
     setDuration(duration) {
+        this.stopTimer()
         this.defaultDuration = duration;
+        this.duration = duration;
     }
 
     display() {
-        let minute = Math.trunc(this.duration / 60);
+        let minute = Math.trunc(this.duration / 60 /1000);
         let second = Math.trunc(this.duration % 60);
+
+        console.log(this.duration % 60)
+
         this.displayLocation.innerHTML =
             (minute > 10 ? minute : "0" + minute) +
             ":" +
@@ -21,11 +26,12 @@ class Timer {
 
     startTimer() {
         this.timerInterval = setInterval(() => {
-            if (duration > 0) {
+            if (this.duration > 0) {
                 this.duration--;
-                display();
+                this.display();
             } else {
                 alert("Time up");
+                // TODO Create a Sound Alert
                 clearInterval(this.timerInterval);
             }
         }, 1000);
@@ -33,12 +39,12 @@ class Timer {
 
     stopTimer() {
         clearInterval(this.timerInterval);
-        display();
+        this.display();
     }
 
     resetTimer() {
         clearInterval(this.timerInterval);
         this.duration = this.defaultDuration;
-        display();
+        this.display();
     }
 }
