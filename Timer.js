@@ -16,8 +16,6 @@ export default class Timer {
         let minute = Math.trunc(this.duration / 60 /1000);
         let second = Math.trunc(this.duration % 60);
 
-        console.log(this.duration % 60)
-
         this.displayLocation.innerHTML =
             (minute > 10 ? minute : "0" + minute) +
             ":" +
