@@ -3,7 +3,8 @@ import Timer from "./Timer.js";
 // TODO get time from storage
 let defaultDuration = 25 * 60 * 1000;
 let clockHtml = document.getElementById("time");
-let timer = new Timer(defaultDuration, clockHtml);
+let clockObjet = document.getElementById("clock");
+let timer = new Timer(defaultDuration, clockHtml, clockObjet);
 timer.display();
 
 document.getElementById("workBtn").addEventListener("click", onClickWorkButton);

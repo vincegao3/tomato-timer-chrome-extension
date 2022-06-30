@@ -2,16 +2,19 @@
     <head>
         <link rel="stylesheet" href="popup.css" />
     </head>
-    <body id="container">
+    <body id="container"">
         <h1 id="title">Tomato Timer</h1>
         <div id="navbar">
             <button id="workBtn">Work</button>
             <button id="restBtn">Rest</button>
         </div>
+        <div id="x">
+            <svg>
+                <circle id="clock" r="18" cx="20" cy="20"></circle>
+            </svg>
+        </div>
         <div id="timer">
-            <div id="clock">
-                <span id="time"></span>
-            </div>
+            <span id="time"></span>
             <button id="startBtn">Start</button>
             <button id="stopBtn">Stop</button>
             <button id="resetBtn">Reset</button>
