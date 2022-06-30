@@ -21,11 +21,13 @@ document
 
 function onClickWorkButton() {
     timer.setDuration(25 * 60 * 1000);
+    timer.resetTimer();
     timer.display();
 }
 
 function onClickRestButton() {
     timer.setDuration(5 * 60 * 1000);
+    timer.resetTimer();
     timer.display();
 }
 
