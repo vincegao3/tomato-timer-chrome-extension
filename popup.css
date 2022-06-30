@@ -4,6 +4,8 @@
     width: 250px;
     height:250px;
     border-radius: 5px;
+    padding: 10px;
+    margin: 5px;
 }
 
 #clock{
@@ -15,10 +17,45 @@
     display: "flex";
     flex-direction: row;
 }
-#clock{
-
-}
 #time{
     height: 25px;
     margin:5px;
+}
+
+clock-container {
+    width: 8rem;
+    height: 8rem;
+}
+
+svg {
+    position: relative;
+    top: 0;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    transform: rotateY(-180deg) rotateZ(-90deg);
+}
+
+svg circle {
+    stroke-dasharray: 113px;
+    stroke-dashoffset: 0px;
+    stroke-linecap: round;
+    stroke-width: 2px;
+    stroke: red;
+    fill: none;
+    animation-duration: 10s;
+    animation-name: countdown;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+    animation-play-state: paused;
+}
+
+@keyframes countdown {
+    from {
+    stroke-dashoffset: 0px;
+    }
+    to {
+    stroke-dashoffset: 113px;
+    }
 }
