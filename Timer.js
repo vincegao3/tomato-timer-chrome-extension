@@ -8,6 +8,7 @@ export default class Timer {
                 this.duration = new Date(result).getTime() - Date.now();
                 this.clockObject.style.animationDuration = this.duration + "s";
                 this.timerInterval = null;
+                this.reqAnimationId = null;
                 this.startTimer()
             } else {
                 this.defaultDuration = duration;
@@ -16,6 +17,7 @@ export default class Timer {
                 this.clockObject = clockObject;
                 this.clockObject.style.animationDuration =
                     this.defaultDuration + "s";
+                this.reqAnimationId = null;
                 this.timerInterval = null;
             }
             this.display()
@@ -73,12 +75,12 @@ export default class Timer {
         this.timerInterval = setInterval(() => {
             if (this.duration > 0) {
                 this.duration -= 1000;
-                this.display();
+                this.startAnimation();
             } else {
-                // TODO Create a Sound Alert
                 this.clockObject.style.animation = "none";
                 clearInterval(this.timerInterval);
                 alert("Time up");
+                this.stopAnimation();
                 resetTimer();
             }
         }, 1000);
@@ -91,6 +93,13 @@ export default class Timer {
         this.stopTime();
     }
 
+    startAnimation(){
+        this.reqAnimationId = requestAnimationFrame(this.display.bind(this));
+    }
+    stopAnimation(){
+        cancelAnimationFrame(this.reqAnimationId);
+    }
+
     resetTimer() {
         clearInterval(this.timerInterval);
         this.duration = this.defaultDuration;
@@ -99,6 +108,7 @@ export default class Timer {
             this.defaultDuration / 1000 + "s";
         this.display();
         this.resetTime();
+        this.stopAnimation();
     }
 
     addTimeToDate(duration) {
