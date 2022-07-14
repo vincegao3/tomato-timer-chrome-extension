@@ -112,7 +112,7 @@ export default class Timer {
     }
 
     addTimeToDate(duration) {
-        let now = new Date(); 
+        let now = new Date();
         return new Date(now.getTime() + duration);
     }
 }
