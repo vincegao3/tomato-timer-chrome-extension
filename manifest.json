@@ -8,8 +8,7 @@
 
     "author": "Vincent Gao",
     "background": {
-        "scripts": ["./background.js"],
-        "persistent": false
+        "scripts": ["./background.js"]
     },
     "option_page": "./option.html",
     "browser_action": {
